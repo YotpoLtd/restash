@@ -1,7 +1,7 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-# Specify your gem's dependencies in resque-to-logstash.gemspec
-gemspec
+# Specify your gem's dependencies in restash.gemspec
+# gemspec
 
 gem 'logstash-logger'
 gem 'resque'

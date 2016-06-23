@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'restash/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'resque-to-logstash'
+  spec.name          = 'restash'
   spec.version       = Restash::VERSION
   spec.authors       = ['Ariel Cabib']
   spec.email         = ['ariel.cabib@gmail.com']
 
   spec.summary       = 'Logs Resque failures to Logstash'
   spec.description   = 'Logs Resque failures to Logstash'
-  spec.homepage      = 'https://github.com/YotpoLtd/resque-to-logstash'
+  spec.homepage      = 'https://github.com/YotpoLtd/restash'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
