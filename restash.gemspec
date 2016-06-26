@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'restash'
   spec.version       = Restash::VERSION
   spec.authors       = ['Ariel Cabib']
-  spec.email         = ['ariel.cabib@gmail.com']
+  spec.email         = ['acabib@yotpo.com']
 
   spec.summary       = 'Logs Resque failures to Logstash'
   spec.description   = 'Logs Resque failures to Logstash'
