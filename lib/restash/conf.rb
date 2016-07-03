@@ -20,3 +20,5 @@ module Restash
 
   end
 end
+
+require 'restash/resque_server'
