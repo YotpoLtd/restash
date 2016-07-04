@@ -9,6 +9,8 @@
     <!-- Bootstrap -->
     <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="css/popup.css" rel="stylesheet">
+
 </head>
 <body>
 <div class="container">
@@ -17,9 +19,13 @@
             <h1>Restash</h1>
         </div>
     </div>
-    <div class="row">
+    <div class="row form-group">
         <div class="col-xs-12 checkbox">
             <label><input type="checkbox" id="enabled-checkbox">Enabled</label>
+        </div>
+        <div class="col-xs-12">
+            <label for="resque-url">Resque url:</label>
+            <input type="text" class="form-control" id="resque-url">
         </div>
     </div>
 
