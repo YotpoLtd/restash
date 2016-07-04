@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+
+  "name": "Restash",
+  "description": "Enabling queueing Resque failed jobs from Kibana",
+  "version": "0.1",
+
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Restash"
+  },
+  "permissions": [
+    "storage"
+  ]
+}
