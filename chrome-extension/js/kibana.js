@@ -70,4 +70,3 @@ chrome.storage.sync.get('extensionEnabled', function(val) {
     //observer.disconnect();
   }
 });
-
