@@ -12,8 +12,20 @@ module Restash
 
         post '/restash/retry' do
           p = JSON.parse(request.body.read)
-          success = Resque.enqueue_to(p['queue'], p['payload']['class'].constantize, *p['payload']['args'])
-          { success: success }.to_json
+          queue = p['queue']
+          klass = p['payload']['class']
+          args = p['payload']['args']
+          success = false
+          enqueue = :not_enqueued
+          begin
+            success = Resque.enqueue_to(queue, klass.constantize, *args)
+            enqueue = :with_resque_enqueue_to
+          rescue NoMethodError => e
+            Resque.push(queue, :class => klass.to_s, :args => args)
+            success = true
+            enqueue = :with_resque_push
+          end
+          { success: success, enqueue: enqueue }.to_json
         end
       end
     end
