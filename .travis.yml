@@ -1,5 +1,18 @@
 sudo: false
 language: ruby
 rvm:
-  - 2.2.1
+- 2.2
+- 2.3
+- head
+matrix:
+  allow_failures:
+    - rvm: head
+    - rvm: 2.3
 before_install: gem install bundler -v 1.12.5
+deploy:
+  api_key:
+    secure: T9pD2t0FZhaAZul13wXUH3Df8AF4/vP9UzO9GmJNxS5S/zk3PG6KnVyIVoXRcyG37uzHwUu91NZgKaze2xTvQl9lWzTNPOTvRwa/kLS2AmbydHCb884LkpItQytmMPtc/SUKoy7hY14JhQfvPFfNiVpO0JtHy592tQp8Z4JokD4WI65945blN4ddk7J2FTYP3YDyuXqq+Fs6bqYsLgl6xfDPfz3dflX9Rc827KhyUS9TpzUqs5jQ2cmOhaI6gZiEmMwMa89VPG/IK9lcMmh8GlzmjYFRWyFnLsgerz5kGDObDThmgru4h9UVPFTcxBxgo5gkcVGU7DnHqkKPKHGcfC677sUFWr4QWQlBJtue+V1kLqYU4PEr+iOkxmZWawjkXwv+7HfH9gitHN34CChVXJiAIQ82VyBPFDfbpr7zsgspyw91gF0GfDYe2ZFBG3rZreefxnGAzFsZGklhigLeceYr08nxryOWd96Ykww7UOIQbRqEyPJox4o05wHPnW8+2VqRDpjST4xOLJGrCBsTm9aTxRFybq3+Xk41VbfT5wKwJeq5rwd0VSd3ErLIxFJ4/7g3zXz017dclXm5UasQcWnsPWURkGaJ/80yCMZsfWips0rm5rh3CEjvbF89Vy21HDWv+hR//u9S1+dY2MyiH0rPaX7wEYlo8tGYjuKsTpc=
+  provider: rubygems
+  on:
+    rvm: 2.2
+    branch: master
