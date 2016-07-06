@@ -1,5 +1,5 @@
 # Restash
-
+[![Build Status](https://travis-ci.org/YotpoLtd/restash.svg?branch=master)](https://travis-ci.org/YotpoLtd/restash)
 Log [Resque](https://github.com/resque/resque) failures to [Logstash](https://www.elastic.co/products/logstash)
 
 ## Usage
