@@ -10,13 +10,16 @@ Resque::Failure::Multiple.classes = [Resque::Failure::Redis, Resque::Failure::Lo
 Resque::Failure.backend = Resque::Failure::Multiple
 ```
 
-Configure logstash host and port (currently support only udp)
+Configure logstash host and port. Supports only tcp, due to the large payload. A timeout can be passed in the options.
 ```
 Restash::Conf.configure do |conf|
   conf.logstash_host = ENV['LOGSTASH_HOST']
   conf.logstash_port = ENV['LOGSTASH_PORT']
+  conf.options = {connect_timeout: timeout1, write_timeout: timeout2, read_timeout: timeout3}
 end
 ```
+
+Additional options can be explored in the [TCPTimeout](https://github.com/lann/tcp-timeout-ruby) project. The options are passed as is to a new TCPTimeout::TCPSocket object on every message.
 
 
 ## License

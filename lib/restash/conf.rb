@@ -1,11 +1,11 @@
-require 'logstash-logger'
+require 'restash/logger'
 
 module Restash
   class Conf
 
     class << self
 
-      attr_accessor :logstash_host, :logstash_port
+      attr_accessor :logstash_host, :logstash_port, :options
 
       def configure
         yield self
@@ -13,7 +13,7 @@ module Restash
       end
 
       def logger
-        @logger ||= LogStashLogger.new(logstash_host, logstash_port)
+        @logger ||= Restash::Logger.new(logstash_host, logstash_port, options)
       end
 
     end
