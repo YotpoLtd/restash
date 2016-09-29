@@ -16,6 +16,7 @@ Restash::Conf.configure do |conf|
   conf.logstash_host = ENV['LOGSTASH_HOST']
   conf.logstash_port = ENV['LOGSTASH_PORT']
   conf.options = {connect_timeout: timeout1, write_timeout: timeout2, read_timeout: timeout3}
+  conf.extra_options[:some_option_key] = :some_option_value
 end
 ```
 

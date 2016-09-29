@@ -7,12 +7,14 @@ module Resque
 
       def save
         begin
-          Restash::Conf.logger.write({ exception: exception.to_s,
-                                       backtrace: exception.backtrace,
-                                       worker: worker.to_s,
-                                       queue: queue,
-                                       payload: payload,
-                                       tags: [:resque_failure] }.to_json)
+          message = { exception: exception.to_s,
+                   backtrace: exception.backtrace,
+                   worker: worker.to_s,
+                   queue: queue,
+                   payload: payload,
+                   tags: [:resque_failure] }
+          message.merge! Restash::Conf.extra_options
+          Restash::Conf.logger.write(message.to_json)
         rescue => e
           puts "Failed to send to logstash: #{e.message}\n#{e.backtrace}"
         end

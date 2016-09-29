@@ -5,9 +5,10 @@ module Restash
 
     class << self
 
-      attr_accessor :logstash_host, :logstash_port, :options
+      attr_accessor :logstash_host, :logstash_port, :options, :extra_options
 
       def configure
+        self.extra_options = {}
         yield self
         true
       end
