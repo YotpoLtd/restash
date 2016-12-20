@@ -17,6 +17,9 @@ Restash::Conf.configure do |conf|
   conf.logstash_port = ENV['LOGSTASH_PORT']
   conf.options = {connect_timeout: timeout1, write_timeout: timeout2, read_timeout: timeout3}
   conf.extra_options[:some_option_key] = :some_option_value
+  conf.message_mutator = Proc.new do |message|
+    message[:special_line] = message[:backtrace].try(:find) {|line| line.include?('special')}
+  end
 end
 ```
 

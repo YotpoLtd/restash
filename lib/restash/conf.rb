@@ -5,7 +5,7 @@ module Restash
 
     class << self
 
-      attr_accessor :logstash_host, :logstash_port, :options, :extra_options
+      attr_accessor :logstash_host, :logstash_port, :options, :extra_options, :message_mutator
 
       def configure
         self.extra_options = {}
